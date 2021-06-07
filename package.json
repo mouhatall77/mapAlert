@@ -1,0 +1,11 @@
+{
+  "name": "mapalert",
+  "version": "1.0.0",
+  "description": "Map Alert web app",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mouhamadou Tall",
+  "license": "ISC"
+}
