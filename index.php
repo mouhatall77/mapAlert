@@ -9,6 +9,7 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="css/chart.min.js">
 	<script type="text/javascript" src="css/jquery.min.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 	<!--<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>-->
 	<script type="text/javascript" src="js/googlemap.js"></script>	
@@ -27,11 +28,37 @@
 		#canvas {
 			width: 10;
 			height: 10;
+			border: 1px solid blue;
 		}
 	</style>
 </head>
 <body>
+<nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top">
+  <a class="navbar-brand" href="#">MapAlert</a>
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navb" aria-expanded="true">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  	<div id="navb" class="navbar-collapse collapse hide">
+		<ul class="navbar-nav">
+		<li class="nav-item active">
+			<a class="nav-link" href="#">Home</a>
+		</li>
+		</ul>
+	</div>
+
+	<div>
+		<ul class="nav navbar-nav ml-auto">
+		<li class="nav-item">
+			<a class="nav-link" href="#"><span class="fas fa-user"></span> Sign Up</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="#"><span class="fas fa-sign-in-alt"></span> Login</a>
+		</li>
+		</ul>
+	</div>
+</nav>
 	
+
 	<div class="container">
 		<center><h2>MapAlert - Recent Traffic Crashes Location</h2></center>
 		<?php
@@ -46,7 +73,7 @@
 			$allVehicule = json_encode($allVehicule, true);
 			echo '<div id="allVehicule">' . $allVehicule . '</div>';
 
-			$allDriver = $crashes->getAllVehicules();
+			$allDriver = $crashes->getAllDriver();
 			$allDriver = json_encode($allDriver, true);
 			echo '<div id="allDriver">' . $allDriver . '</div>';
 		?>
@@ -58,6 +85,12 @@
 
 	<div class="container">
 	<canvas id="mychart" width="100" height="100">Hello</canvas>
+
+	<div id="chart-container">
+        <canvas id="graphCanvas"></canvas>
+    </div>
+
+	<script src="js/charts.js"></script>
 </body>
 
 <script async defer
